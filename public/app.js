@@ -1,162 +1,255 @@
 const STAGES = ['fabrication', 'ready', 'dispatched'];
-const STAGE_LABELS = { fabrication: 'In Fabrication', ready: 'Ready for Dispatch', dispatched: 'Dispatched' };
-const STATE_ORDER = ['NSW', 'QLD', 'VIC', 'WA', 'SA', 'NT', 'TAS'];
+const STAGE_LABELS = { fabrication: 'Fabrication', ready: 'Ready to Ship', dispatched: 'Dispatched' };
+const STAGE_COLORS = { fabrication: '#f59e0b', ready: '#22c55e', dispatched: '#3b82f6' };
 
 const STATE_COLORS = {
-  'NSW': { border: '#3b82f6', bg: 'rgba(59,130,246,0.12)', label: '#3b82f6' },
-  'QLD': { border: '#ef4444', bg: 'rgba(239,68,68,0.12)', label: '#ef4444' },
-  'VIC': { border: '#a855f7', bg: 'rgba(168,85,247,0.12)', label: '#a855f7' },
-  'WA':  { border: '#22c55e', bg: 'rgba(34,197,94,0.12)', label: '#22c55e' },
-  'SA':  { border: '#f59e0b', bg: 'rgba(245,158,11,0.12)', label: '#f59e0b' },
-  'NT':  { border: '#ec4899', bg: 'rgba(236,72,153,0.12)', label: '#ec4899' },
-  'TAS': { border: '#06b6d4', bg: 'rgba(6,182,212,0.12)', label: '#06b6d4' },
-  'OTHER': { border: '#64748b', bg: 'rgba(100,116,139,0.12)', label: '#64748b' }
+  'NSW': { bg: 'rgba(59,130,246,0.12)', border: '#3b82f6', text: '#60a5fa', dot: '#3b82f6' },
+  'QLD': { bg: 'rgba(239,68,68,0.12)',  border: '#ef4444', text: '#f87171', dot: '#ef4444' },
+  'WA':  { bg: 'rgba(34,197,94,0.12)',  border: '#22c55e', text: '#4ade80', dot: '#22c55e' },
+  'VIC': { bg: 'rgba(168,85,247,0.12)', border: '#a855f7', text: '#c084fc', dot: '#a855f7' },
+  'SA':  { bg: 'rgba(245,158,11,0.12)', border: '#f59e0b', text: '#fbbf24', dot: '#f59e0b' },
+  'NT':  { bg: 'rgba(236,72,153,0.12)', border: '#ec4899', text: '#f472b6', dot: '#ec4899' },
+  'TAS': { bg: 'rgba(20,184,166,0.12)', border: '#14b8a6', text: '#2dd4bf', dot: '#14b8a6' },
+  'ACT': { bg: 'rgba(99,102,241,0.12)', border: '#6366f1', text: '#818cf8', dot: '#6366f1' },
 };
+const DEFAULT_STATE_COLOR = { bg: 'rgba(100,116,139,0.12)', border: '#64748b', text: '#94a3b8', dot: '#64748b' };
 
-let jobs = [];
-let expandedId = null;
+let allJobs = [];
 let activeTab = 'fabrication';
+let expandedId = null;
+
+// Drag state
+let draggedCard = null;
+let draggedJobId = null;
+let dragPlaceholder = null;
 
 async function fetchJobs() {
-  try {
-    const res = await fetch('/api/jobs');
-    jobs = await res.json();
-    render();
-  } catch (e) {
-    console.error('Failed to fetch jobs:', e);
-  }
-}
-
-async function updateJob(id, data) {
-  try {
-    await fetch(`/api/jobs/${id}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
-    await fetchJobs();
-  } catch (e) {
-    console.error('Failed to update job:', e);
-  }
-}
-
-function groupByState(stageJobs) {
-  const groups = {};
-  stageJobs.forEach(j => {
-    const st = j.state && STATE_ORDER.includes(j.state.toUpperCase()) ? j.state.toUpperCase() : 'OTHER';
-    if (!groups[st]) groups[st] = [];
-    groups[st].push(j);
-  });
-  const sorted = {};
-  [...STATE_ORDER, 'OTHER'].forEach(s => {
-    if (groups[s]) sorted[s] = groups[s];
-  });
-  return sorted;
-}
-
-function nextStage(stage) {
-  const i = STAGES.indexOf(stage);
-  return i < STAGES.length - 1 ? STAGES[i + 1] : null;
-}
-
-function prevStage(stage) {
-  const i = STAGES.indexOf(stage);
-  return i > 0 ? STAGES[i - 1] : null;
-}
-
-function esc(s) {
-  if (!s) return '';
-  const d = document.createElement('div');
-  d.textContent = s;
-  return d.innerHTML;
+  const res = await fetch('/api/jobs');
+  allJobs = await res.json();
+  render();
 }
 
 function getStateColor(state) {
-  const st = state && STATE_ORDER.includes(state.toUpperCase()) ? state.toUpperCase() : 'OTHER';
-  return STATE_COLORS[st] || STATE_COLORS['OTHER'];
+  return STATE_COLORS[state?.toUpperCase()] || DEFAULT_STATE_COLOR;
 }
 
-function renderCard(job) {
-  const isExpanded = expandedId === job.id;
-  const next = nextStage(job.stage);
-  const prev = prevStage(job.stage);
-  const color = getStateColor(job.state);
-
-  return `
-    <div class="card ${isExpanded ? 'expanded' : ''}" data-id="${job.id}" style="border-left: 3px solid ${color.border}; background: ${color.bg};">
-      <div class="card-top" onclick="toggleExpand(${job.id})">
-        <div>
-          <div class="card-customer">${esc(job.customer)}</div>
-          <div class="card-product">${esc(job.product)}</div>
-          <div class="card-meta">
-            <span class="card-qty">${esc(job.state || '')}</span>
-            <span class="card-qty">×${job.quantity}</span>
-            ${job.order_ref ? `<span>${esc(job.order_ref)}</span>` : ''}
-          </div>
-        </div>
-      </div>
-      ${job.notes ? `<div class="card-notes">${esc(job.notes)}</div>` : ''}
-      <div class="card-actions">
-        ${prev ? `<button class="btn btn-prev" onclick="event.stopPropagation(); moveJob(${job.id}, '${prev}')">◀ ${STAGE_LABELS[prev]}</button>` : ''}
-        ${next ? `<button class="btn btn-next" onclick="event.stopPropagation(); moveJob(${job.id}, '${next}')">${STAGE_LABELS[next]} ▶</button>` : ''}
-      </div>
-    </div>
-  `;
-}
-
-function toggleExpand(id) {
-  expandedId = expandedId === id ? null : id;
-  render();
-}
-
-function moveJob(id, newStage) {
-  expandedId = null;
-  updateJob(id, { stage: newStage });
+function groupByState(jobs) {
+  const groups = {};
+  jobs.forEach(j => {
+    const st = (j.state || 'OTHER').toUpperCase();
+    if (!groups[st]) groups[st] = [];
+    groups[st].push(j);
+  });
+  // Sort: NSW first, then QLD, WA, VIC, SA, NT, TAS, ACT, OTHER
+  const order = ['NSW', 'QLD', 'WA', 'VIC', 'SA', 'NT', 'TAS', 'ACT', 'OTHER'];
+  const sorted = {};
+  order.forEach(s => { if (groups[s]) sorted[s] = groups[s]; });
+  Object.keys(groups).forEach(s => { if (!sorted[s]) sorted[s] = groups[s]; });
+  return sorted;
 }
 
 function render() {
+  const board = document.getElementById('board');
+  const stats = document.getElementById('stats');
+  const tabs = document.getElementById('tabs');
+
+  const bySt = {};
+  STAGES.forEach(s => bySt[s] = allJobs.filter(j => j.stage === s));
+
   // Stats
-  const statsEl = document.getElementById('stats');
-  const fabCount = jobs.filter(j => j.stage === 'fabrication').length;
-  const readyCount = jobs.filter(j => j.stage === 'ready').length;
-  const dispCount = jobs.filter(j => j.stage === 'dispatched').length;
-  statsEl.innerHTML = `
-    <div class="stat stat-fab"><div class="stat-num">${fabCount}</div><div class="stat-label">Build</div></div>
-    <div class="stat stat-ready"><div class="stat-num">${readyCount}</div><div class="stat-label">Ready</div></div>
-    <div class="stat stat-disp"><div class="stat-num">${dispCount}</div><div class="stat-label">Sent</div></div>
+  stats.innerHTML = `
+    <div class="stat stat-fab"><div class="stat-num">${bySt.fabrication.length}</div><div class="stat-label">Build</div></div>
+    <div class="stat stat-ready"><div class="stat-num">${bySt.ready.length}</div><div class="stat-label">Ready</div></div>
+    <div class="stat stat-disp"><div class="stat-num">${bySt.dispatched.length}</div><div class="stat-label">Sent</div></div>
   `;
 
   // Tabs
-  const tabsEl = document.getElementById('tabs');
-  tabsEl.innerHTML = STAGES.map(s =>
-    `<div class="tab ${activeTab === s ? 'active-' + s : ''}" onclick="setTab('${s}')">${STAGE_LABELS[s]} (${jobs.filter(j => j.stage === s).length})</div>`
+  tabs.innerHTML = STAGES.map(s =>
+    `<div class="tab ${activeTab === s ? 'active-' + s : ''}" onclick="switchTab('${s}')">${STAGE_LABELS[s]} (${bySt[s].length})</div>`
   ).join('');
 
-  // Board
-  const boardEl = document.getElementById('board');
-  boardEl.innerHTML = STAGES.map(stage => {
-    const stageJobs = jobs.filter(j => j.stage === stage);
-    const groups = groupByState(stageJobs);
+  // Columns
+  board.innerHTML = STAGES.map(stage => {
+    const jobs = bySt[stage];
+    const groups = groupByState(jobs);
     let cardsHtml = '';
-    for (const [state, stateJobs] of Object.entries(groups)) {
-      const stColor = STATE_COLORS[state] || STATE_COLORS['OTHER'];
-      cardsHtml += `<div class="state-group"><div class="state-label" style="color: ${stColor.label};">● ${state}</div>${stateJobs.map(renderCard).join('')}</div>`;
-    }
-    if (stageJobs.length === 0) cardsHtml = '<div style="text-align:center;color:#475569;padding:40px;font-size:14px;">No jobs</div>';
+
+    Object.entries(groups).forEach(([state, stJobs]) => {
+      const sc = getStateColor(state);
+      cardsHtml += `<div class="state-label"><span style="color:${sc.dot}">● </span><span style="color:${sc.text}">${state}</span> <span style="color:#475569">(${stJobs.length})</span></div>`;
+      cardsHtml += `<div class="state-group" data-state="${state}" data-stage="${stage}">`;
+      stJobs.forEach(j => {
+        const sc2 = getStateColor(j.state);
+        const isExp = expandedId === j.id;
+        const prevStage = STAGES[STAGES.indexOf(stage) - 1];
+        const nextStage = STAGES[STAGES.indexOf(stage) + 1];
+        const prevBtn = prevStage ? `<button class="btn btn-prev" onclick="event.stopPropagation();moveJob(${j.id},'${prevStage}')">◀ ${STAGE_LABELS[prevStage]}</button>` : '';
+        const nextBtn = nextStage ? `<button class="btn btn-next" onclick="event.stopPropagation();moveJob(${j.id},'${nextStage}')"> ${STAGE_LABELS[nextStage]} ▶</button>` : '';
+        const deleteBtn = stage === 'dispatched' ? `<button class="btn btn-delete" onclick="event.stopPropagation();removeJob(${j.id},'${j.customer}')" style="background:#ef4444;color:#fff;flex:0.5">✕ Remove</button>` : '';
+        const noteHtml = j.notes ? `<div class="card-notes">${j.notes}</div>` : '';
+        cardsHtml += `
+          <div class="card ${isExp ? 'expanded' : ''}"
+               draggable="true"
+               data-job-id="${j.id}"
+               data-stage="${stage}"
+               style="background:${sc2.bg};border-left-color:${sc2.border}"
+               onclick="toggleCard(${j.id})"
+               ondragstart="onDragStart(event,${j.id})"
+               ondragend="onDragEnd(event)"
+               ondragover="onDragOver(event)"
+               ondrop="onDrop(event,${j.id})">
+            <div class="card-customer">${j.customer}</div>
+            <div class="card-product">${j.product || ''}</div>
+            <div class="card-meta">
+              ${j.order_ref ? '<span>' + j.order_ref + '</span>' : ''}
+              <span class="card-qty">${j.quantity || 1}x</span>
+              <span class="card-state-badge" style="background:${sc2.border};color:#fff;font-size:10px;font-weight:700;padding:1px 5px;border-radius:3px;">${(j.state || '').toUpperCase()}</span>
+            </div>
+            ${noteHtml}
+            <div class="card-actions">${prevBtn}${nextBtn}${deleteBtn}</div>
+          </div>`;
+      });
+      cardsHtml += '</div>';
+    });
+
     return `
-      <div class="column col-${stage} ${activeTab === stage ? 'active' : ''}">
-        <div class="column-header">${STAGE_LABELS[stage]} (${stageJobs.length})</div>
+      <div class="column col-${stage} ${activeTab === stage ? 'active' : ''}"
+           data-stage="${stage}"
+           ondragover="onColumnDragOver(event)"
+           ondrop="onColumnDrop(event,'${stage}')">
+        <div class="column-header">${STAGE_LABELS[stage]} (${jobs.length})</div>
         <div class="column-body">${cardsHtml}</div>
-      </div>
-    `;
+      </div>`;
   }).join('');
 }
 
-function setTab(stage) {
-  activeTab = stage;
+function switchTab(s) { activeTab = s; render(); }
+function toggleCard(id) { expandedId = expandedId === id ? null : id; render(); }
+
+async function moveJob(id, newStage) {
+  await fetch(`/api/jobs/${id}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ stage: newStage })
+  });
+  const job = allJobs.find(j => j.id === id);
+  if (job) job.stage = newStage;
+  expandedId = null;
   render();
 }
 
-// Auto-refresh every 30 seconds
+async function removeJob(id, customer) {
+  if (!confirm(`Remove "${customer}" from Dispatched?`)) return;
+  await fetch(`/api/jobs/${id}`, { method: 'DELETE' });
+  allJobs = allJobs.filter(j => j.id !== id);
+  expandedId = null;
+  render();
+}
+
+// ── Drag & Drop (reorder within column) ──
+
+function onDragStart(e, jobId) {
+  draggedJobId = jobId;
+  draggedCard = e.target;
+  e.target.style.opacity = '0.4';
+  e.dataTransfer.effectAllowed = 'move';
+  e.dataTransfer.setData('text/plain', jobId);
+}
+
+function onDragEnd(e) {
+  e.target.style.opacity = '1';
+  draggedJobId = null;
+  draggedCard = null;
+  // Remove any leftover placeholders
+  document.querySelectorAll('.drag-placeholder').forEach(el => el.remove());
+}
+
+function onDragOver(e) {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+
+  // Visual indicator
+  const card = e.target.closest('.card');
+  if (!card || !draggedCard || card === draggedCard) return;
+
+  // Same stage only
+  if (card.dataset.stage !== draggedCard.dataset.stage) return;
+
+  const rect = card.getBoundingClientRect();
+  const midY = rect.top + rect.height / 2;
+  const parent = card.parentNode;
+
+  // Remove old placeholder
+  document.querySelectorAll('.drag-placeholder').forEach(el => el.remove());
+
+  const placeholder = document.createElement('div');
+  placeholder.className = 'drag-placeholder';
+  placeholder.style.cssText = 'height:4px;background:#f59e0b;border-radius:2px;margin:4px 0;';
+
+  if (e.clientY < midY) {
+    parent.insertBefore(placeholder, card);
+  } else {
+    parent.insertBefore(placeholder, card.nextSibling);
+  }
+}
+
+function onColumnDragOver(e) {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+}
+
+function onDrop(e, targetJobId) {
+  e.preventDefault();
+  document.querySelectorAll('.drag-placeholder').forEach(el => el.remove());
+
+  if (!draggedJobId || draggedJobId === targetJobId) return;
+
+  const draggedJob = allJobs.find(j => j.id === draggedJobId);
+  const targetJob = allJobs.find(j => j.id === targetJobId);
+  if (!draggedJob || !targetJob) return;
+
+  // Only reorder within same stage and state
+  if (draggedJob.stage !== targetJob.stage) return;
+
+  const stage = draggedJob.stage;
+  const stageJobs = allJobs.filter(j => j.stage === stage);
+
+  // Get the card element to determine above/below
+  const targetCard = document.querySelector(`.card[data-job-id="${targetJobId}"]`);
+  const rect = targetCard?.getBoundingClientRect();
+  const dropAbove = rect ? e.clientY < (rect.top + rect.height / 2) : true;
+
+  // Remove dragged from list
+  const filtered = stageJobs.filter(j => j.id !== draggedJobId);
+  const targetIdx = filtered.findIndex(j => j.id === targetJobId);
+  const insertIdx = dropAbove ? targetIdx : targetIdx + 1;
+  filtered.splice(insertIdx, 0, draggedJob);
+
+  // Update priorities
+  const orders = filtered.map((j, i) => ({ id: j.id, priority: i }));
+  orders.forEach(o => {
+    const job = allJobs.find(j => j.id === o.id);
+    if (job) job.priority = o.priority;
+  });
+
+  expandedId = null;
+  render();
+
+  // Persist
+  fetch('/api/jobs/reorder', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ orders })
+  });
+}
+
+function onColumnDrop(e, stage) {
+  e.preventDefault();
+  document.querySelectorAll('.drag-placeholder').forEach(el => el.remove());
+  // If dropped on empty area of column, handled by card drop
+}
+
+// Initial load
 fetchJobs();
+// Auto-refresh every 30s
 setInterval(fetchJobs, 30000);
