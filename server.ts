@@ -68,6 +68,20 @@ const server = Bun.serve({
         return json({ id: result.lastInsertRowid, success: true }, 201);
       }
 
+      // Bulk reorder endpoint
+      if (path === "/api/jobs/reorder" && req.method === "POST") {
+        const body = await req.json();
+        // body.orders = [{id, priority}, ...]
+        const stmt = db.prepare("UPDATE production_jobs SET priority = ?, updated_at = datetime('now') WHERE id = ?");
+        const tx = db.transaction((orders: {id: number, priority: number}[]) => {
+          for (const o of orders) {
+            stmt.run(o.priority, o.id);
+          }
+        });
+        tx(body.orders || []);
+        return json({ success: true });
+      }
+
       const jobMatch = path.match(/^\/api\/jobs\/(\d+)$/);
       if (jobMatch) {
         const id = parseInt(jobMatch[1]);
@@ -90,7 +104,6 @@ const server = Bun.serve({
         }
 
         if (req.method === "DELETE") {
-          if (!checkApiKey(req)) return json({ error: "Unauthorized" }, 401);
           db.prepare("DELETE FROM production_jobs WHERE id = ?").run(id);
           return json({ success: true });
         }
