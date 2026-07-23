@@ -1,0 +1,9 @@
+{
+  "name": "SRF Production Tracker",
+  "short_name": "SRF Tracker",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#f59e0b",
+  "icons": []
+}

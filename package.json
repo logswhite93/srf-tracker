@@ -1,0 +1,8 @@
+{
+  "name": "srf-production-tracker",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "bun run server.ts"
+  },
+  "dependencies": {}
+}

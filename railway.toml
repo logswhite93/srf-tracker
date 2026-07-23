@@ -1,0 +1,9 @@
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+startCommand = "bun run server.ts"
+healthcheckPath = "/api/jobs"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3

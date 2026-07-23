@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>SRF Production Tracker</title>
+  <link rel="manifest" href="/manifest.json">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .header {
+      background: #1e293b;
+      border-bottom: 1px solid #334155;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header h1 { font-size: 18px; font-weight: 700; color: #f59e0b; }
+    .header .subtitle { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+    .header-stats { display: flex; gap: 16px; }
+    .stat { text-align: center; }
+    .stat-num { font-size: 20px; font-weight: 700; }
+    .stat-label { font-size: 10px; color: #94a3b8; text-transform: uppercase; }
+    .stat-fab .stat-num { color: #f59e0b; }
+    .stat-ready .stat-num { color: #22c55e; }
+    .stat-disp .stat-num { color: #3b82f6; }
+
+    /* Tabs for mobile */
+    .tabs {
+      display: none;
+      background: #1e293b;
+      border-bottom: 1px solid #334155;
+    }
+    .tab {
+      flex: 1; padding: 10px; text-align: center; font-size: 13px;
+      font-weight: 600; cursor: pointer; border-bottom: 2px solid transparent;
+    }
+    .tab.active-fab { border-color: #f59e0b; color: #f59e0b; }
+    .tab.active-ready { border-color: #22c55e; color: #22c55e; }
+    .tab.active-dispatched { border-color: #3b82f6; color: #3b82f6; }
+
+    .board { display: flex; height: calc(100vh - 60px); overflow: hidden; }
+    .column {
+      flex: 1; display: flex; flex-direction: column;
+      border-right: 1px solid #1e293b; overflow: hidden;
+    }
+    .column:last-child { border-right: none; }
+    .column-header {
+      padding: 10px 14px; font-size: 13px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px;
+      border-bottom: 2px solid;
+    }
+    .col-fabrication .column-header { color: #f59e0b; border-color: #f59e0b; background: rgba(245,158,11,0.08); }
+    .col-ready .column-header { color: #22c55e; border-color: #22c55e; background: rgba(34,197,94,0.08); }
+    .col-dispatched .column-header { color: #3b82f6; border-color: #3b82f6; background: rgba(59,130,246,0.08); }
+    .column-body { flex: 1; overflow-y: auto; padding: 8px; }
+
+    .state-group { margin-bottom: 12px; }
+    .state-label {
+      font-size: 11px; font-weight: 700; color: #64748b;
+      padding: 4px 8px; text-transform: uppercase; letter-spacing: 1px;
+    }
+    .card {
+      background: #1e293b; border-radius: 8px; margin: 6px 0; padding: 10px 12px;
+      border-left: 3px solid #334155; cursor: pointer; transition: all 0.15s;
+    }
+    .card:active { transform: scale(0.98); }
+    .card-customer { font-size: 14px; font-weight: 600; color: #f1f5f9; }
+    .card-product { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+    .card-meta { font-size: 11px; color: #64748b; margin-top: 4px; display: flex; gap: 8px; align-items: center; }
+    .card-qty {
+      background: #334155; color: #e2e8f0; font-size: 11px; font-weight: 600;
+      padding: 1px 6px; border-radius: 4px;
+    }
+    .card-actions {
+      display: none; margin-top: 8px; padding-top: 8px;
+      border-top: 1px solid #334155; gap: 6px;
+    }
+    .card.expanded .card-actions { display: flex; }
+    .btn {
+      flex: 1; padding: 8px; border: none; border-radius: 6px;
+      font-size: 13px; font-weight: 600; cursor: pointer;
+    }
+    .btn-next { background: #22c55e; color: #fff; }
+    .btn-prev { background: #64748b; color: #fff; }
+    .card-notes {
+      display: none; margin-top: 6px; font-size: 12px; color: #94a3b8;
+      font-style: italic;
+    }
+    .card.expanded .card-notes { display: block; }
+
+    @media (max-width: 768px) {
+      .tabs { display: flex; }
+      .board { height: calc(100vh - 100px); }
+      .column { display: none; }
+      .column.active { display: flex; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div>
+      <h1>⚙ SRF Production Tracker</h1>
+      <div class="subtitle">Sunset Ridge Feeders</div>
+    </div>
+    <div class="header-stats" id="stats"></div>
+  </div>
+  <div class="tabs" id="tabs"></div>
+  <div class="board" id="board"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
