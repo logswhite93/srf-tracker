@@ -318,5 +318,145 @@
     "notes": "Picking Now. TBC Forrestfield, WA 6058. $1,795.00",
     "state": "WA",
     "priority": 33
+  },
+  {
+    "order_ref": "SH-298",
+    "customer": "MANFRED STATION PTY LTD",
+    "product": "Pig Trap",
+    "quantity": 1,
+    "stage": "fabrication",
+    "notes": "",
+    "state": "NSW",
+    "priority": 34
+  },
+  {
+    "order_ref": "SH-40",
+    "customer": "JON PHELAN TRANSPORT",
+    "product": "3000mm Cattle Feeder",
+    "quantity": 1,
+    "stage": "fabrication",
+    "notes": "",
+    "state": "NSW",
+    "priority": 35
+  },
+  {
+    "order_ref": "SH-68",
+    "customer": "JOSHUA HARTGE",
+    "product": "Pig Trap",
+    "quantity": 1,
+    "stage": "fabrication",
+    "notes": "",
+    "state": "NSW",
+    "priority": 36
+  },
+  {
+    "order_ref": "SH-106",
+    "customer": "P W BARBER",
+    "product": "Square Bale Feeder + 3m Trailing Lick Feeder",
+    "quantity": 1,
+    "stage": "fabrication",
+    "notes": "",
+    "state": "NSW",
+    "priority": 37
+  },
+  {
+    "order_ref": "SH-299",
+    "customer": "SPRING CREEK LAND & CATTLE CO",
+    "product": "Pig Trap",
+    "quantity": 1,
+    "stage": "fabrication",
+    "notes": "",
+    "state": "NSW",
+    "priority": 38
+  },
+  {
+    "order_ref": "SH-120",
+    "customer": "CREST ANODES",
+    "product": "Pig Trap",
+    "quantity": 1,
+    "stage": "fabrication",
+    "notes": "",
+    "state": "WA",
+    "priority": 39
+  },
+  {
+    "order_ref": "SH-121",
+    "customer": "AUSSIE BOAR CAGES",
+    "product": "Pig Trap + Hopper 1200",
+    "quantity": 1,
+    "stage": "fabrication",
+    "notes": "",
+    "state": "WA",
+    "priority": 40
+  },
+  {
+    "order_ref": "SH-267",
+    "customer": "AUSSIE BOAR CAGES",
+    "product": "Hopper 1200",
+    "quantity": 1,
+    "stage": "fabrication",
+    "notes": "",
+    "state": "WA",
+    "priority": 41
+  },
+  {
+    "order_ref": "SH-300",
+    "customer": "RYAN JONES",
+    "product": "Pig Trap + Standard Gal Mesh Panel 2400 X 1500 + Replacement Entry Panel",
+    "quantity": 1,
+    "stage": "fabrication",
+    "notes": "",
+    "state": "QLD",
+    "priority": 42
+  },
+  {
+    "order_ref": "SH-301",
+    "customer": "TOR DROUGHTMASTERS",
+    "product": "Pig Trap",
+    "quantity": 1,
+    "stage": "fabrication",
+    "notes": "",
+    "state": "QLD",
+    "priority": 43
+  },
+  {
+    "order_ref": "SH-303",
+    "customer": "MJ MCALPINE",
+    "product": "Pig Trap + Baulk Gate",
+    "quantity": 1,
+    "stage": "fabrication",
+    "notes": "",
+    "state": "NSW",
+    "priority": 44
+  },
+  {
+    "order_ref": "SH-304",
+    "customer": "NEWMONT CADIA",
+    "product": "Pig Trap",
+    "quantity": 1,
+    "stage": "fabrication",
+    "notes": "",
+    "state": "NSW",
+    "priority": 45
+  },
+  {
+    "order_ref": "SH-302",
+    "customer": "BRAZZEN DARWIN & TOP END",
+    "product": "Pig Trap + Replacement Entry Panel",
+    "quantity": 1,
+    "stage": "fabrication",
+    "notes": "",
+    "state": "QLD",
+    "priority": 46
+  },
+  {
+    "order_ref": "SH-305",
+    "customer": "LEE CARMODY",
+    "product": "Pig Trap + 1200 x 400 Hopper",
+    "quantity": 1,
+    "stage": "fabrication",
+    "notes": "",
+    "state": "ACT",
+    "priority": 47
   }
 ]

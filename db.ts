@@ -19,7 +19,7 @@ db.exec(`
     customer TEXT NOT NULL,
     product TEXT,
     quantity INTEGER DEFAULT 1,
-    stage TEXT DEFAULT 'fabrication' CHECK(stage IN ('fabrication','ready','dispatched')),
+    stage TEXT DEFAULT 'queued' CHECK(stage IN ('queued','fabrication','ready','dispatched')),
     notes TEXT DEFAULT '',
     state TEXT DEFAULT '',
     priority INTEGER DEFAULT 99,
