@@ -30,6 +30,7 @@
     .stat { text-align: center; }
     .stat-num { font-size: 20px; font-weight: 700; }
     .stat-label { font-size: 10px; color: #94a3b8; text-transform: uppercase; }
+    .stat-queued .stat-num { color: #8b5cf6; }
     .stat-fab .stat-num { color: #f59e0b; }
     .stat-ready .stat-num { color: #22c55e; }
     .stat-disp .stat-num { color: #3b82f6; }
@@ -44,6 +45,7 @@
       flex: 1; padding: 10px; text-align: center; font-size: 13px;
       font-weight: 600; cursor: pointer; border-bottom: 2px solid transparent;
     }
+    .tab.active-queued { border-color: #8b5cf6; color: #8b5cf6; }
     .tab.active-fab { border-color: #f59e0b; color: #f59e0b; }
     .tab.active-ready { border-color: #22c55e; color: #22c55e; }
     .tab.active-dispatched { border-color: #3b82f6; color: #3b82f6; }
@@ -59,6 +61,7 @@
       text-transform: uppercase; letter-spacing: 1px;
       border-bottom: 2px solid;
     }
+    .col-queued .column-header { color: #8b5cf6; border-color: #8b5cf6; background: rgba(139,92,246,0.08); }
     .col-fabrication .column-header { color: #f59e0b; border-color: #f59e0b; background: rgba(245,158,11,0.08); }
     .col-ready .column-header { color: #22c55e; border-color: #22c55e; background: rgba(34,197,94,0.08); }
     .col-dispatched .column-header { color: #3b82f6; border-color: #3b82f6; background: rgba(59,130,246,0.08); }

@@ -62,7 +62,7 @@ const server = Bun.serve({
         );
         const result = stmt.run(
           body.order_ref || null, body.customer, body.product || "",
-          body.quantity || 1, body.stage || "fabrication", body.notes || "",
+          body.quantity || 1, body.stage || "queued", body.notes || "",
           body.state || "", body.priority || 99
         );
         return json({ id: result.lastInsertRowid, success: true }, 201);

@@ -1,6 +1,6 @@
-const STAGES = ['fabrication', 'ready', 'dispatched'];
-const STAGE_LABELS = { fabrication: 'Fabrication', ready: 'Ready to Ship', dispatched: 'Dispatched' };
-const STAGE_COLORS = { fabrication: '#f59e0b', ready: '#22c55e', dispatched: '#3b82f6' };
+const STAGES = ['queued', 'fabrication', 'ready', 'dispatched'];
+const STAGE_LABELS = { queued: 'Queued', fabrication: 'Fabrication', ready: 'Ready to Ship', dispatched: 'Dispatched' };
+const STAGE_COLORS = { queued: '#8b5cf6', fabrication: '#f59e0b', ready: '#22c55e', dispatched: '#3b82f6' };
 
 const STATE_COLORS = {
   'NSW': { bg: 'rgba(59,130,246,0.12)', border: '#3b82f6', text: '#60a5fa', dot: '#3b82f6' },
@@ -58,6 +58,7 @@ function render() {
 
   // Stats
   stats.innerHTML = `
+    <div class="stat stat-queued"><div class="stat-num">${bySt.queued.length}</div><div class="stat-label">Queued</div></div>
     <div class="stat stat-fab"><div class="stat-num">${bySt.fabrication.length}</div><div class="stat-label">Build</div></div>
     <div class="stat stat-ready"><div class="stat-num">${bySt.ready.length}</div><div class="stat-label">Ready</div></div>
     <div class="stat stat-disp"><div class="stat-num">${bySt.dispatched.length}</div><div class="stat-label">Sent</div></div>
@@ -65,7 +66,7 @@ function render() {
 
   // Tabs
   tabs.innerHTML = STAGES.map(s =>
-    `<div class="tab ${activeTab === s ? 'active-' + s : ''}" onclick="switchTab('${s}')">${STAGE_LABELS[s]} (${bySt[s].length})</div>`
+    `<div class="tab ${activeTab === s ? 'active-' + (s === 'fabrication' ? 'fab' : s) : ''}" onclick="switchTab('${s}')">${STAGE_LABELS[s]} (${bySt[s].length})</div>`
   ).join('');
 
   // Columns
