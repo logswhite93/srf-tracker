@@ -458,5 +458,15 @@
     "notes": "",
     "state": "ACT",
     "priority": 47
+  },
+  {
+    "order_ref": "SH-306",
+    "customer": "M & S CHARLTON",
+    "product": "3000mm Galvanised Cattle Feeder - 3.7 Tonne",
+    "quantity": 1,
+    "stage": "queued",
+    "notes": "",
+    "state": "NSW",
+    "priority": 48
   }
 ]
