@@ -33,6 +33,23 @@ function getStateColor(state) {
   return STATE_COLORS[state?.toUpperCase()] || DEFAULT_STATE_COLOR;
 }
 
+function daysInProduction(job) {
+  // Falls back to "today" (0 days) if no created_at/added_at timestamp is present.
+  const raw = job.created_at || job.added_at;
+  const created = raw ? new Date(raw.replace(' ', 'T') + (raw.includes('Z') || raw.includes('+') ? '' : 'Z')) : new Date();
+  if (isNaN(created.getTime())) return 0;
+  const ms = Date.now() - created.getTime();
+  return Math.max(0, Math.floor(ms / 86400000));
+}
+
+function daysBadgeHtml(job) {
+  const d = daysInProduction(job);
+  let cls = 'card-days';
+  if (d >= 14) cls += ' card-days-danger';
+  else if (d >= 7) cls += ' card-days-warn';
+  return `<span class="${cls}" title="${d} day${d === 1 ? '' : 's'} in production">⏱ ${d}d</span>`;
+}
+
 function groupByState(jobs) {
   const groups = {};
   jobs.forEach(j => {
@@ -108,6 +125,7 @@ function render() {
               ${j.order_ref ? '<span>' + j.order_ref + '</span>' : ''}
               <span class="card-qty">${j.quantity || 1}x</span>
               <span class="card-state-badge" style="background:${sc2.border};color:#fff;font-size:10px;font-weight:700;padding:1px 5px;border-radius:3px;">${(j.state || '').toUpperCase()}</span>
+              ${daysBadgeHtml(j)}
             </div>
             ${phoneHtml}
             ${noteHtml}
