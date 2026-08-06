@@ -88,6 +88,9 @@ function render() {
         const nextBtn = nextStage ? `<button class="btn btn-next" onclick="event.stopPropagation();moveJob(${j.id},'${nextStage}')"> ${STAGE_LABELS[nextStage]} ▶</button>` : '';
         const deleteBtn = stage === 'dispatched' ? `<button class="btn btn-delete" onclick="event.stopPropagation();removeJob(${j.id},'${j.customer}')" style="background:#ef4444;color:#fff;flex:0.5">✕ Remove</button>` : '';
         const noteHtml = j.notes ? `<div class="card-notes">${j.notes}</div>` : '';
+        const phoneHtml = j.contact_phone
+          ? `<div class="card-phone"><a href="tel:${j.contact_phone.replace(/[^+\d]/g, '')}" onclick="event.stopPropagation()">📞 ${j.contact_phone}</a></div>`
+          : '';
         cardsHtml += `
           <div class="card ${isExp ? 'expanded' : ''}"
                draggable="true"
@@ -106,6 +109,7 @@ function render() {
               <span class="card-qty">${j.quantity || 1}x</span>
               <span class="card-state-badge" style="background:${sc2.border};color:#fff;font-size:10px;font-weight:700;padding:1px 5px;border-radius:3px;">${(j.state || '').toUpperCase()}</span>
             </div>
+            ${phoneHtml}
             ${noteHtml}
             <div class="card-actions">${prevBtn}${nextBtn}${deleteBtn}</div>
           </div>`;

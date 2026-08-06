@@ -58,12 +58,12 @@ const server = Bun.serve({
         if (!checkApiKey(req)) return json({ error: "Unauthorized" }, 401);
         const body = await req.json();
         const stmt = db.prepare(
-          "INSERT INTO production_jobs (order_ref, customer, product, quantity, stage, notes, state, priority) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+          "INSERT INTO production_jobs (order_ref, customer, product, quantity, stage, notes, state, priority, contact_phone) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
         );
         const result = stmt.run(
           body.order_ref || null, body.customer, body.product || "",
           body.quantity || 1, body.stage || "queued", body.notes || "",
-          body.state || "", body.priority || 99
+          body.state || "", body.priority || 99, body.contact_phone || null
         );
         return json({ id: result.lastInsertRowid, success: true }, 201);
       }
@@ -90,7 +90,7 @@ const server = Bun.serve({
           const updates: string[] = [];
           const values: any[] = [];
           for (const [key, val] of Object.entries(body)) {
-            if (["stage", "notes", "customer", "product", "quantity", "state", "priority", "order_ref"].includes(key)) {
+            if (["stage", "notes", "customer", "product", "quantity", "state", "priority", "order_ref", "contact_phone"].includes(key)) {
               updates.push(`${key} = ?`);
               values.push(val);
             }

@@ -7,7 +7,8 @@
     "stage": "fabrication",
     "notes": "2 items. Group with SH-124/125 for Wagga run.",
     "state": "NSW",
-    "priority": 1
+    "priority": 1,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-124",
@@ -17,7 +18,8 @@
     "stage": "fabrication",
     "notes": "2 items. Group with SH-123/125 for Wagga run.",
     "state": "NSW",
-    "priority": 2
+    "priority": 2,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-125",
@@ -27,7 +29,8 @@
     "stage": "fabrication",
     "notes": "2 items. Group with SH-123/124 for Wagga run.",
     "state": "NSW",
-    "priority": 4
+    "priority": 4,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-258",
@@ -37,7 +40,8 @@
     "stage": "fabrication",
     "notes": "3 items. Customer pickup.",
     "state": "NSW",
-    "priority": 4
+    "priority": 4,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-269",
@@ -47,7 +51,8 @@
     "stage": "fabrication",
     "notes": "2 items. Dubbo delivery.",
     "state": "NSW",
-    "priority": 6
+    "priority": 6,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-270",
@@ -57,7 +62,8 @@
     "stage": "fabrication",
     "notes": "3 items. Stuart Town delivery.",
     "state": "NSW",
-    "priority": 7
+    "priority": 7,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-272",
@@ -67,7 +73,8 @@
     "stage": "fabrication",
     "notes": "3 items. Customer pickup.",
     "state": "NSW",
-    "priority": 8
+    "priority": 8,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-273",
@@ -77,7 +84,8 @@
     "stage": "fabrication",
     "notes": "2 items. Wombeyan Caves delivery.",
     "state": "NSW",
-    "priority": 9
+    "priority": 9,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-274",
@@ -87,7 +95,8 @@
     "stage": "fabrication",
     "notes": "3 items. Customer pickup.",
     "state": "NSW",
-    "priority": 10
+    "priority": 10,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-276",
@@ -97,7 +106,8 @@
     "stage": "fabrication",
     "notes": "Picking Now. Suite 5/19-31 Peter St, Wagga Wagga, NSW 2650. $1,525.75",
     "state": "NSW",
-    "priority": 11
+    "priority": 11,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-277",
@@ -107,7 +117,8 @@
     "stage": "fabrication",
     "notes": "Picking Now. Suite 5/19-31 Peter St, Wagga Wagga, NSW 2650. $1,525.75",
     "state": "NSW",
-    "priority": 12
+    "priority": 12,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-280",
@@ -117,7 +128,8 @@
     "stage": "fabrication",
     "notes": "Picking Now. Numalla, Trundle, NSW 2875. $1,895.00",
     "state": "NSW",
-    "priority": 13
+    "priority": 13,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-284",
@@ -127,7 +139,8 @@
     "stage": "fabrication",
     "notes": "Picking Now. TBC Inverell, NSW 2360. $2,376.85",
     "state": "NSW",
-    "priority": 14
+    "priority": 14,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-286",
@@ -137,7 +150,8 @@
     "stage": "fabrication",
     "notes": "Picking Now. Depot TBA, Hillston, NSW 2675. $2,251.85",
     "state": "NSW",
-    "priority": 15
+    "priority": 15,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-288",
@@ -147,7 +161,8 @@
     "stage": "fabrication",
     "notes": "Picking Now. 561 Standrings Road, Somerton, NSW 2340. $3,953.33",
     "state": "NSW",
-    "priority": 16
+    "priority": 16,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-293",
@@ -157,7 +172,8 @@
     "stage": "fabrication",
     "notes": "Picking Now. Collect Unit 3, Parkes. $4,418.10",
     "state": "NSW",
-    "priority": 17
+    "priority": 17,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-295",
@@ -167,7 +183,8 @@
     "stage": "fabrication",
     "notes": "Picking Now. Collect Unit 3, Parkes.",
     "state": "NSW",
-    "priority": 18
+    "priority": 18,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-250",
@@ -177,7 +194,8 @@
     "stage": "fabrication",
     "notes": "5 items. Longreach delivery.",
     "state": "QLD",
-    "priority": 19
+    "priority": 19,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-275",
@@ -187,7 +205,8 @@
     "stage": "fabrication",
     "notes": "Picking Now. Riverside Station, Moranbah, QLD. $36,258.40",
     "state": "QLD",
-    "priority": 20
+    "priority": 20,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-281",
@@ -197,7 +216,8 @@
     "stage": "fabrication",
     "notes": "Picking Now. TBC Toowoomba, QLD 4350. $4,343.50",
     "state": "QLD",
-    "priority": 21
+    "priority": 21,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-282",
@@ -207,7 +227,8 @@
     "stage": "fabrication",
     "notes": "Picking Now. TBC Mount Isa, QLD 4825. $4,788.00",
     "state": "QLD",
-    "priority": 22
+    "priority": 22,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-283",
@@ -217,7 +238,8 @@
     "stage": "fabrication",
     "notes": "Picking Now. TBC Cloncurry, QLD 4824. $5,403.54. Partially Invoiced.",
     "state": "QLD",
-    "priority": 23
+    "priority": 23,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-285",
@@ -227,7 +249,8 @@
     "stage": "fabrication",
     "notes": "Picking Now. Burnett Transport, Bundaberg, QLD 4670. $4,163.33",
     "state": "QLD",
-    "priority": 24
+    "priority": 24,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-289",
@@ -237,7 +260,8 @@
     "stage": "fabrication",
     "notes": "Picking Now. Maney Transport, Meadowbrook, QLD 4131. $2,912.00",
     "state": "QLD",
-    "priority": 25
+    "priority": 25,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-290",
@@ -247,7 +271,8 @@
     "stage": "fabrication",
     "notes": "Picking Now. Depot TBA, Gympie, QLD 4570. $2,461.85. Status: New (not yet invoiced).",
     "state": "QLD",
-    "priority": 26
+    "priority": 26,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-291",
@@ -257,7 +282,8 @@
     "stage": "fabrication",
     "notes": "Picking Now. Hillalong Station, Barcaldine, QLD 4725. $4,772.42",
     "state": "QLD",
-    "priority": 27
+    "priority": 27,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-292",
@@ -267,7 +293,8 @@
     "stage": "fabrication",
     "notes": "Picking Now. Hillalong Station, Barcaldine, QLD 4725. $18,765.53",
     "state": "QLD",
-    "priority": 28
+    "priority": 28,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-294",
@@ -277,7 +304,8 @@
     "stage": "fabrication",
     "notes": "Picking Now. Depot TBA, Meandarra, QLD 4422. $4,163.33",
     "state": "QLD",
-    "priority": 29
+    "priority": 29,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-296",
@@ -287,7 +315,8 @@
     "stage": "fabrication",
     "notes": "Picking Now. 26 Dunstall St, Gladstone, QLD 4680. $4,019.50",
     "state": "QLD",
-    "priority": 30
+    "priority": 30,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-297",
@@ -297,7 +326,8 @@
     "stage": "fabrication",
     "notes": "To Be Picked. Maney Transport, Meadowbrook, QLD 4131. $4,194.64",
     "state": "QLD",
-    "priority": 31
+    "priority": 31,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-260",
@@ -307,7 +337,8 @@
     "stage": "fabrication",
     "notes": "4 items. Victoria run.",
     "state": "VIC",
-    "priority": 32
+    "priority": 32,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-267",
@@ -317,7 +348,8 @@
     "stage": "fabrication",
     "notes": "Picking Now. TBC Forrestfield, WA 6058. $1,795.00",
     "state": "WA",
-    "priority": 33
+    "priority": 33,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-298",
@@ -327,7 +359,8 @@
     "stage": "fabrication",
     "notes": "",
     "state": "NSW",
-    "priority": 34
+    "priority": 34,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-40",
@@ -337,7 +370,8 @@
     "stage": "fabrication",
     "notes": "",
     "state": "NSW",
-    "priority": 35
+    "priority": 35,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-68",
@@ -347,7 +381,8 @@
     "stage": "fabrication",
     "notes": "",
     "state": "NSW",
-    "priority": 36
+    "priority": 36,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-106",
@@ -357,7 +392,8 @@
     "stage": "fabrication",
     "notes": "",
     "state": "NSW",
-    "priority": 37
+    "priority": 37,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-299",
@@ -367,7 +403,8 @@
     "stage": "fabrication",
     "notes": "",
     "state": "NSW",
-    "priority": 38
+    "priority": 38,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-120",
@@ -377,7 +414,8 @@
     "stage": "fabrication",
     "notes": "",
     "state": "WA",
-    "priority": 39
+    "priority": 39,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-121",
@@ -387,7 +425,8 @@
     "stage": "fabrication",
     "notes": "",
     "state": "WA",
-    "priority": 40
+    "priority": 40,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-267",
@@ -397,7 +436,8 @@
     "stage": "fabrication",
     "notes": "",
     "state": "WA",
-    "priority": 41
+    "priority": 41,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-300",
@@ -407,7 +447,8 @@
     "stage": "fabrication",
     "notes": "",
     "state": "QLD",
-    "priority": 42
+    "priority": 42,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-301",
@@ -417,7 +458,8 @@
     "stage": "fabrication",
     "notes": "",
     "state": "QLD",
-    "priority": 43
+    "priority": 43,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-303",
@@ -427,7 +469,8 @@
     "stage": "fabrication",
     "notes": "",
     "state": "NSW",
-    "priority": 44
+    "priority": 44,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-304",
@@ -437,7 +480,8 @@
     "stage": "fabrication",
     "notes": "",
     "state": "NSW",
-    "priority": 45
+    "priority": 45,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-302",
@@ -447,7 +491,8 @@
     "stage": "fabrication",
     "notes": "",
     "state": "QLD",
-    "priority": 46
+    "priority": 46,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-305",
@@ -457,7 +502,8 @@
     "stage": "fabrication",
     "notes": "",
     "state": "ACT",
-    "priority": 47
+    "priority": 47,
+    "contact_phone": ""
   },
   {
     "order_ref": "SH-306",
@@ -467,6 +513,18 @@
     "stage": "queued",
     "notes": "",
     "state": "NSW",
-    "priority": 48
+    "priority": 48,
+    "contact_phone": ""
+  },
+  {
+    "order_ref": "SH-307",
+    "customer": "PHIL'S MINI DIGGERS",
+    "product": "Hopper 1200 x 400",
+    "quantity": 1,
+    "stage": "fabrication",
+    "notes": "",
+    "state": "NSW",
+    "priority": 49,
+    "contact_phone": ""
   }
 ]

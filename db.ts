@@ -23,9 +23,21 @@ db.exec(`
     notes TEXT DEFAULT '',
     state TEXT DEFAULT '',
     priority INTEGER DEFAULT 99,
+    contact_phone TEXT,
     created_at TEXT DEFAULT (datetime('now')),
     updated_at TEXT DEFAULT (datetime('now'))
   )
 `);
+
+// Lightweight migration: add contact_phone column if the table already existed without it
+try {
+  const cols = db.query("PRAGMA table_info(production_jobs)").all() as any[];
+  const hasContactPhone = cols.some((c) => c.name === "contact_phone");
+  if (!hasContactPhone) {
+    db.exec("ALTER TABLE production_jobs ADD COLUMN contact_phone TEXT");
+  }
+} catch (e) {
+  console.error("Migration check failed:", e);
+}
 
 export default db;

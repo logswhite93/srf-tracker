@@ -6,10 +6,10 @@ const existing = db.query("SELECT COUNT(*) as c FROM production_jobs").get() as 
 
 if (existing.c === 0) {
   const stmt = db.prepare(
-    "INSERT INTO production_jobs (order_ref, customer, product, quantity, stage, notes, state, priority) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+    "INSERT INTO production_jobs (order_ref, customer, product, quantity, stage, notes, state, priority, contact_phone) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
   );
   for (const j of jobs) {
-    stmt.run(j.order_ref, j.customer, j.product, j.quantity, j.stage, j.notes, j.state, j.priority);
+    stmt.run(j.order_ref, j.customer, j.product, j.quantity, j.stage, j.notes, j.state, j.priority, j.contact_phone || null);
   }
   console.log(`Seeded ${jobs.length} jobs`);
 } else {
