@@ -1,50 +1,14 @@
 [
   {
-    "order_ref": "SH-123",
-    "customer": "EDUCATION SERVICES INTL",
-    "product": "Pig Trap",
-    "quantity": 2,
-    "stage": "fabrication",
-    "notes": "2 items. Group with SH-124/125 for Wagga run.",
-    "state": "NSW",
-    "priority": 1,
-    "contact_phone": "",
-    "created_at": "2026-08-06 23:43:26"
-  },
-  {
-    "order_ref": "SH-124",
-    "customer": "EDUCATION SERVICES INTL",
-    "product": "Pig Trap",
-    "quantity": 2,
-    "stage": "fabrication",
-    "notes": "2 items. Group with SH-123/125 for Wagga run.",
-    "state": "NSW",
-    "priority": 2,
-    "contact_phone": "",
-    "created_at": "2026-08-06 23:43:26"
-  },
-  {
-    "order_ref": "SH-125",
-    "customer": "EDUCATION SERVICES INTL",
-    "product": "Pig Trap",
-    "quantity": 1,
-    "stage": "fabrication",
-    "notes": "2 items. Group with SH-123/124 for Wagga run.",
-    "state": "NSW",
-    "priority": 4,
-    "contact_phone": "",
-    "created_at": "2026-08-06 23:43:26"
-  },
-  {
     "order_ref": "SH-258",
     "customer": "RB JONES & PARTNERS",
     "product": "Pig Trap",
     "quantity": 2,
-    "stage": "fabrication",
+    "stage": "ready",
     "notes": "3 items. Customer pickup.",
     "state": "NSW",
     "priority": 4,
-    "contact_phone": "",
+    "contact_phone": "0428 577 682",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -52,11 +16,11 @@
     "customer": "TIM THORNBURY",
     "product": "2400mm Lick Feeder (Flat Pack)",
     "quantity": 1,
-    "stage": "fabrication",
+    "stage": "queued",
     "notes": "2 items. Dubbo delivery.",
     "state": "NSW",
     "priority": 6,
-    "contact_phone": "",
+    "contact_phone": "0447 820 714",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -64,35 +28,11 @@
     "customer": "GLENGARRY WEST FLATS",
     "product": "Pig Trap",
     "quantity": 2,
-    "stage": "fabrication",
+    "stage": "ready",
     "notes": "3 items. Stuart Town delivery.",
     "state": "NSW",
     "priority": 7,
-    "contact_phone": "",
-    "created_at": "2026-08-06 23:43:26"
-  },
-  {
-    "order_ref": "SH-272",
-    "customer": "MARK LOOKER",
-    "product": "Pig Trap",
-    "quantity": 2,
-    "stage": "fabrication",
-    "notes": "3 items. Customer pickup.",
-    "state": "NSW",
-    "priority": 8,
-    "contact_phone": "",
-    "created_at": "2026-08-06 23:43:26"
-  },
-  {
-    "order_ref": "SH-273",
-    "customer": "SHANE BRANDTMAN TRUST",
-    "product": "Pig Trap",
-    "quantity": 1,
-    "stage": "fabrication",
-    "notes": "2 items. Wombeyan Caves delivery.",
-    "state": "NSW",
-    "priority": 9,
-    "contact_phone": "",
+    "contact_phone": "0423 171 715",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -100,35 +40,11 @@
     "customer": "DAVID FISHPOOL",
     "product": "Pig Trap",
     "quantity": 2,
-    "stage": "fabrication",
+    "stage": "ready",
     "notes": "3 items. Customer pickup.",
     "state": "NSW",
     "priority": 10,
-    "contact_phone": "",
-    "created_at": "2026-08-06 23:43:26"
-  },
-  {
-    "order_ref": "SH-276",
-    "customer": "EDUCATION SERVICES INTL",
-    "product": "Hopper (1200x400)",
-    "quantity": 1,
-    "stage": "fabrication",
-    "notes": "Picking Now. Suite 5/19-31 Peter St, Wagga Wagga, NSW 2650. $1,525.75",
-    "state": "NSW",
-    "priority": 11,
-    "contact_phone": "",
-    "created_at": "2026-08-06 23:43:26"
-  },
-  {
-    "order_ref": "SH-277",
-    "customer": "EDUCATION SERVICES INTL",
-    "product": "Hopper (1200x400)",
-    "quantity": 1,
-    "stage": "fabrication",
-    "notes": "Picking Now. Suite 5/19-31 Peter St, Wagga Wagga, NSW 2650. $1,525.75",
-    "state": "NSW",
-    "priority": 12,
-    "contact_phone": "",
+    "contact_phone": "0429 979 172",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -136,47 +52,11 @@
     "customer": "NSBF P/L",
     "product": "Pig Trap",
     "quantity": 1,
-    "stage": "fabrication",
+    "stage": "ready",
     "notes": "Picking Now. Numalla, Trundle, NSW 2875. $1,895.00",
     "state": "NSW",
     "priority": 13,
-    "contact_phone": "",
-    "created_at": "2026-08-06 23:43:26"
-  },
-  {
-    "order_ref": "SH-284",
-    "customer": "MICHAEL SPENCER",
-    "product": "Pig Trap",
-    "quantity": 1,
-    "stage": "fabrication",
-    "notes": "Picking Now. TBC Inverell, NSW 2360. $2,376.85",
-    "state": "NSW",
-    "priority": 14,
-    "contact_phone": "",
-    "created_at": "2026-08-06 23:43:26"
-  },
-  {
-    "order_ref": "SH-286",
-    "customer": "BURGESS FARMS",
-    "product": "Pig Trap",
-    "quantity": 1,
-    "stage": "fabrication",
-    "notes": "Picking Now. Depot TBA, Hillston, NSW 2675. $2,251.85",
-    "state": "NSW",
-    "priority": 15,
-    "contact_phone": "",
-    "created_at": "2026-08-06 23:43:26"
-  },
-  {
-    "order_ref": "SH-288",
-    "customer": "GJ AND PA SWAIN PTY LTD",
-    "product": "Pig Trap",
-    "quantity": 2,
-    "stage": "fabrication",
-    "notes": "Picking Now. 561 Standrings Road, Somerton, NSW 2340. $3,953.33",
-    "state": "NSW",
-    "priority": 16,
-    "contact_phone": "",
+    "contact_phone": "0477 210 484",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -184,11 +64,11 @@
     "customer": "DI CHIRGWIN",
     "product": "3m Trailing Pig Feeder",
     "quantity": 1,
-    "stage": "fabrication",
+    "stage": "queued",
     "notes": "Picking Now. Collect Unit 3, Parkes. $4,418.10",
     "state": "NSW",
     "priority": 17,
-    "contact_phone": "",
+    "contact_phone": "0428 544 215",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -200,19 +80,7 @@
     "notes": "Picking Now. Collect Unit 3, Parkes.",
     "state": "NSW",
     "priority": 18,
-    "contact_phone": "",
-    "created_at": "2026-08-06 23:43:26"
-  },
-  {
-    "order_ref": "SH-250",
-    "customer": "RABREMO / OSTWALD RURAL",
-    "product": "6m Trailing Lick Feeder",
-    "quantity": 4,
-    "stage": "fabrication",
-    "notes": "5 items. Longreach delivery.",
-    "state": "QLD",
-    "priority": 19,
-    "contact_phone": "",
+    "contact_phone": "0428 771 105",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -220,11 +88,11 @@
     "customer": "RIVERSIDE BEEF",
     "product": "6m Trailing Lick Feeder",
     "quantity": 6,
-    "stage": "fabrication",
+    "stage": "queued",
     "notes": "Picking Now. Riverside Station, Moranbah, QLD. $36,258.40",
     "state": "QLD",
     "priority": 20,
-    "contact_phone": "",
+    "contact_phone": "0409 418 339",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -236,7 +104,7 @@
     "notes": "Picking Now. TBC Toowoomba, QLD 4350. $4,343.50",
     "state": "QLD",
     "priority": 21,
-    "contact_phone": "",
+    "contact_phone": "0488 740 510",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -248,7 +116,7 @@
     "notes": "Picking Now. TBC Mount Isa, QLD 4825. $4,788.00",
     "state": "QLD",
     "priority": 22,
-    "contact_phone": "",
+    "contact_phone": "0429 406 905",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -260,31 +128,7 @@
     "notes": "Picking Now. TBC Cloncurry, QLD 4824. $5,403.54. Partially Invoiced.",
     "state": "QLD",
     "priority": 23,
-    "contact_phone": "",
-    "created_at": "2026-08-06 23:43:26"
-  },
-  {
-    "order_ref": "SH-285",
-    "customer": "QUEBEC CITRUS",
-    "product": "Pig Trap",
-    "quantity": 2,
-    "stage": "fabrication",
-    "notes": "Picking Now. Burnett Transport, Bundaberg, QLD 4670. $4,163.33",
-    "state": "QLD",
-    "priority": 24,
-    "contact_phone": "",
-    "created_at": "2026-08-06 23:43:26"
-  },
-  {
-    "order_ref": "SH-289",
-    "customer": "B.M MCDONALD & M.N MCDONALD",
-    "product": "Pig Trap + Repeat Entry Panel",
-    "quantity": 2,
-    "stage": "fabrication",
-    "notes": "Picking Now. Maney Transport, Meadowbrook, QLD 4131. $2,912.00",
-    "state": "QLD",
-    "priority": 25,
-    "contact_phone": "",
+    "contact_phone": "0447 071 739",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -292,11 +136,11 @@
     "customer": "TECH SERVICES PTY LTD",
     "product": "Pig Trap",
     "quantity": 1,
-    "stage": "fabrication",
+    "stage": "queued",
     "notes": "Picking Now. Depot TBA, Gympie, QLD 4570. $2,461.85. Status: New (not yet invoiced).",
     "state": "QLD",
     "priority": 26,
-    "contact_phone": "",
+    "contact_phone": "0417 409 469",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -304,11 +148,11 @@
     "customer": "SHAWN RYAN",
     "product": "4.5m Trailing Lick Feeder",
     "quantity": 1,
-    "stage": "fabrication",
+    "stage": "queued",
     "notes": "Picking Now. Hillalong Station, Barcaldine, QLD 4725. $4,772.42",
     "state": "QLD",
     "priority": 27,
-    "contact_phone": "",
+    "contact_phone": "0448 590 069",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -316,23 +160,11 @@
     "customer": "CHANDLER GRAZING",
     "product": "4.5m Trailing Lick Feeder",
     "quantity": 3,
-    "stage": "fabrication",
+    "stage": "queued",
     "notes": "Picking Now. Hillalong Station, Barcaldine, QLD 4725. $18,765.53",
     "state": "QLD",
     "priority": 28,
-    "contact_phone": "",
-    "created_at": "2026-08-06 23:43:26"
-  },
-  {
-    "order_ref": "SH-294",
-    "customer": "ROBERT MILLS",
-    "product": "Pig Trap",
-    "quantity": 2,
-    "stage": "fabrication",
-    "notes": "Picking Now. Depot TBA, Meandarra, QLD 4422. $4,163.33",
-    "state": "QLD",
-    "priority": 29,
-    "contact_phone": "",
+    "contact_phone": "0427 511 645",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -340,11 +172,11 @@
     "customer": "KANGRA PASTORAL",
     "product": "Pig Trap",
     "quantity": 2,
-    "stage": "fabrication",
+    "stage": "queued",
     "notes": "Picking Now. 26 Dunstall St, Gladstone, QLD 4680. $4,019.50",
     "state": "QLD",
     "priority": 30,
-    "contact_phone": "",
+    "contact_phone": "0416 362 347",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -352,35 +184,11 @@
     "customer": "OFT (QLD) P/L",
     "product": "Pig Trap",
     "quantity": 2,
-    "stage": "fabrication",
+    "stage": "queued",
     "notes": "To Be Picked. Maney Transport, Meadowbrook, QLD 4131. $4,194.64",
     "state": "QLD",
     "priority": 31,
-    "contact_phone": "",
-    "created_at": "2026-08-06 23:43:26"
-  },
-  {
-    "order_ref": "SH-260",
-    "customer": "OLAM FOOD INGREDIENTS",
-    "product": "Pig Trap + Standard Panel",
-    "quantity": 3,
-    "stage": "fabrication",
-    "notes": "4 items. Victoria run.",
-    "state": "VIC",
-    "priority": 32,
-    "contact_phone": "",
-    "created_at": "2026-08-06 23:43:26"
-  },
-  {
-    "order_ref": "SH-267",
-    "customer": "AUSSIE BOAR CAGES",
-    "product": "Hopper (1200x400)",
-    "quantity": 1,
-    "stage": "fabrication",
-    "notes": "Picking Now. TBC Forrestfield, WA 6058. $1,795.00",
-    "state": "WA",
-    "priority": 33,
-    "contact_phone": "",
+    "contact_phone": "0448 998 788",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -388,11 +196,11 @@
     "customer": "MANFRED STATION PTY LTD",
     "product": "Pig Trap",
     "quantity": 1,
-    "stage": "fabrication",
+    "stage": "queued",
     "notes": "",
     "state": "NSW",
     "priority": 34,
-    "contact_phone": "",
+    "contact_phone": "0438 551 523",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -400,11 +208,11 @@
     "customer": "JON PHELAN TRANSPORT",
     "product": "3000mm Cattle Feeder",
     "quantity": 1,
-    "stage": "fabrication",
+    "stage": "queued",
     "notes": "",
     "state": "NSW",
     "priority": 35,
-    "contact_phone": "",
+    "contact_phone": "0400 268 681",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -412,11 +220,11 @@
     "customer": "JOSHUA HARTGE",
     "product": "Pig Trap",
     "quantity": 1,
-    "stage": "fabrication",
+    "stage": "queued",
     "notes": "",
     "state": "NSW",
     "priority": 36,
-    "contact_phone": "",
+    "contact_phone": "0403 112 083",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -424,11 +232,11 @@
     "customer": "P W BARBER",
     "product": "Square Bale Feeder + 3m Trailing Lick Feeder",
     "quantity": 1,
-    "stage": "fabrication",
+    "stage": "queued",
     "notes": "",
     "state": "NSW",
     "priority": 37,
-    "contact_phone": "",
+    "contact_phone": "0427 624 329",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -436,47 +244,11 @@
     "customer": "SPRING CREEK LAND & CATTLE CO",
     "product": "Pig Trap",
     "quantity": 1,
-    "stage": "fabrication",
+    "stage": "queued",
     "notes": "",
     "state": "NSW",
     "priority": 38,
-    "contact_phone": "",
-    "created_at": "2026-08-06 23:43:26"
-  },
-  {
-    "order_ref": "SH-120",
-    "customer": "CREST ANODES",
-    "product": "Pig Trap",
-    "quantity": 1,
-    "stage": "fabrication",
-    "notes": "",
-    "state": "WA",
-    "priority": 39,
-    "contact_phone": "",
-    "created_at": "2026-08-06 23:43:26"
-  },
-  {
-    "order_ref": "SH-121",
-    "customer": "AUSSIE BOAR CAGES",
-    "product": "Pig Trap + Hopper 1200",
-    "quantity": 1,
-    "stage": "fabrication",
-    "notes": "",
-    "state": "WA",
-    "priority": 40,
-    "contact_phone": "",
-    "created_at": "2026-08-06 23:43:26"
-  },
-  {
-    "order_ref": "SH-267",
-    "customer": "AUSSIE BOAR CAGES",
-    "product": "Hopper 1200",
-    "quantity": 1,
-    "stage": "fabrication",
-    "notes": "",
-    "state": "WA",
-    "priority": 41,
-    "contact_phone": "",
+    "contact_phone": "0429 110 894",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -484,11 +256,11 @@
     "customer": "RYAN JONES",
     "product": "Pig Trap + Standard Gal Mesh Panel 2400 X 1500 + Replacement Entry Panel",
     "quantity": 1,
-    "stage": "fabrication",
+    "stage": "queued",
     "notes": "",
     "state": "QLD",
     "priority": 42,
-    "contact_phone": "",
+    "contact_phone": "0417 750 607",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -496,11 +268,11 @@
     "customer": "TOR DROUGHTMASTERS",
     "product": "Pig Trap",
     "quantity": 1,
-    "stage": "fabrication",
+    "stage": "queued",
     "notes": "",
     "state": "QLD",
     "priority": 43,
-    "contact_phone": "",
+    "contact_phone": "0427 136 695",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -508,11 +280,11 @@
     "customer": "MJ MCALPINE",
     "product": "Pig Trap + Baulk Gate",
     "quantity": 1,
-    "stage": "fabrication",
+    "stage": "ready",
     "notes": "",
     "state": "NSW",
     "priority": 44,
-    "contact_phone": "",
+    "contact_phone": "0418 700 177",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -520,11 +292,11 @@
     "customer": "NEWMONT CADIA",
     "product": "Pig Trap",
     "quantity": 1,
-    "stage": "fabrication",
+    "stage": "queued",
     "notes": "",
     "state": "NSW",
     "priority": 45,
-    "contact_phone": "",
+    "contact_phone": "0497 452 014",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -532,11 +304,11 @@
     "customer": "BRAZZEN DARWIN & TOP END",
     "product": "Pig Trap + Replacement Entry Panel",
     "quantity": 1,
-    "stage": "fabrication",
+    "stage": "queued",
     "notes": "",
     "state": "QLD",
     "priority": 46,
-    "contact_phone": "",
+    "contact_phone": "0413 128 660",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -544,11 +316,11 @@
     "customer": "LEE CARMODY",
     "product": "Pig Trap + 1200 x 400 Hopper",
     "quantity": 1,
-    "stage": "fabrication",
+    "stage": "queued",
     "notes": "",
     "state": "ACT",
     "priority": 47,
-    "contact_phone": "",
+    "contact_phone": "0418 257 580",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -560,7 +332,7 @@
     "notes": "",
     "state": "NSW",
     "priority": 48,
-    "contact_phone": "",
+    "contact_phone": "0427 240 417",
     "created_at": "2026-08-06 23:43:26"
   },
   {
@@ -568,11 +340,11 @@
     "customer": "PHIL'S MINI DIGGERS",
     "product": "Hopper 1200 x 400",
     "quantity": 1,
-    "stage": "fabrication",
+    "stage": "queued",
     "notes": "",
     "state": "NSW",
     "priority": 49,
-    "contact_phone": "",
+    "contact_phone": null,
     "created_at": "2026-08-06 23:43:26"
   }
 ]
